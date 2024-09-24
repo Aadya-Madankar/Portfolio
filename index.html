@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script type="text/javascript" src="https://unpkg.com/@play-ai/web-embed"></script>
+<script type="text/javascript">
+  addEventListener("load", () => {
+    PlayAI.open('dXwFZ6FeFXBLzV-Zw88Kf');
+  });
+</script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Title: add your Portfolio websites's title here -->
     <title>Aadya Madankar | AI Engineer</title>
 
@@ -58,7 +64,14 @@
         </h1>
         <p class="hero-cta">
           <a class="cta-btn cta-btn--hero" href="#about">Get in touch</a>
-        </p>
+        <div class="listen-now-container"></div>
+          <button id="audio-play-button" class="listen-now-button" aria-label="Play audio">
+            <i class="fas fa-headphones"></i> Listen Now
+          </button>
+        </div>
+        <audio id="podcast-audio" src="podcast_saved.wav"></audio>
+      </p>
+      </section>
       </section>
       <a href="#about" class="scroll-down-link" aria-label="scroll-down">
         <div class="scroll-down"></div
@@ -378,7 +391,19 @@
     <!-- END Footer Section -->
 
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear()
+      document.getElementById("year").textContent = new Date().getFullYear();
+      
+      // Add this script to make the Listen Now button functional
+      document.getElementById('audio-play-button').addEventListener('click', function() {
+        var audio = document.getElementById('podcast-audio');
+        if (audio.paused) {
+          audio.play();
+          this.innerHTML = '<i class="fas fa-pause"></i> Pause';
+        } else {
+          audio.pause();
+          this.innerHTML = '<i class="fas fa-play"></i> Play';
+        }
+      });
     </script>
     <script src="./javascript/vanilla-tilt.min.js"></script>
     <script type="text/javascript" src="./javascript/valtilt.js"></script>

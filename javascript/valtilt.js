@@ -6,3 +6,4 @@ VanillaTilt.init(tilt, {
   glare: true,
   "max-glare": 0.3,
 });
+
